@@ -1,24 +1,116 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página não encontrada | 404</title>
-    <link rel="stylesheet" href="./resources/css/styles.css">
+    <title>joaoDev</title>
+    <style>
+        body {
+            background-color: #1e1e1e;
+            color: #33ff33;
+            font-family: monospace;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #desktop {
+            background-color: #2b2b2b;
+            width: 90%;
+            height: 90%;
+            border: 2px solid #33ff33;
+            position: relative;
+            padding: 20px;
+        }
+
+        #terminal {
+            background-color: black;
+            border: 2px solid #33ff33;
+            width: 100%;
+            height: 80%;
+            padding: 20px;
+            white-space: pre-wrap;
+            overflow-y: auto;
+            color: #33ff33;
+            font-size: 1.1em;
+            display: none;
+        }
+
+        .input-line {
+            display: flex;
+        }
+
+        .prompt {
+            margin-right: 5px;
+        }
+
+        .blinking-cursor {
+            display: inline-block;
+            width: 10px;
+            background-color: #33ff33;
+            animation: blink 1s steps(2, start) infinite;
+        }
+
+        @keyframes blink {
+            to {
+                visibility: hidden;
+            }
+        }
+
+        .icon {
+            color: #33ff33;
+            cursor: pointer;
+            margin: 20px;
+            display: inline-block;
+            font-size: 3em;
+            transition: transform 0.2s;
+        }
+
+        .icon:hover {
+            transform: scale(1.1);
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Oops! Página não encontrada</h1>
-        <p>Desculpe, não conseguimos encontrar a página que você procurava.</p>
-        <p>Mas não se preocupe, você pode receber atualizações do nosso site.</p>
+    <div id="desktop">
+        <div class="icon" onclick="openTerminal('projetos')">📁 Projetos</div>
+        <div class="icon" onclick="openTerminal('skills')">⚙️ Skills</div>
+        <div class="icon" onclick="openTerminal('contato')">✉️ Contato</div>
 
-        <form id="emailForm" action="your-backend-endpoint" method="POST">
-            <label for="email">Digite seu e-mail para receber atualizações:</label>
-            <input type="email" id="email" name="email" placeholder="seu-email@dominio.com" required>
-            <button type="submit">Inscrever-se</button>
-        </form>
-
-        <p><a href="/">Voltar para a página inicial</a></p>
+        <div id="terminal"></div>
     </div>
+
+    <script>
+        const terminal = document.getElementById('terminal');
+
+        function openTerminal(section) {
+            terminal.style.display = 'block';
+            let content = '';
+
+            switch (section) {
+                case 'projetos':
+                    content = '📁 Projetos:\n- Projeto Alpha\n- Projeto Beta\n- Projeto Gama';
+                    break;
+                case 'skills':
+                    content = '⚙️ Skills:\n- HTML/CSS\n- JavaScript\n- Python';
+                    break;
+                case 'contato':
+                    content = '✉️ Contato:\nEmail: exemplo@dominio.com\nLinkedIn: linkedin.com/in/exemplo';
+                    break;
+                default:
+                    content = 'Comando não reconhecido.';
+            }
+
+            terminal.innerText = content;
+        }
+    </script>
 </body>
 </html>
+
+
+
+
+

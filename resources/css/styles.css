@@ -1,78 +1,200 @@
+/* Reset básico */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Courier New', monospace;
+    scroll-behavior: smooth;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
-    color: #333;
+    background: #0d0d0d;
+    color: #00ffea;
+    overflow-x: hidden;
+}
+
+/* Efeito de partículas */
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: radial-gradient(circle, #001f3f, #000);
+    opacity: 0.7;
+}
+
+/* Navegação holográfica */
+.cyber-nav {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
     display: flex;
     justify-content: center;
+    border-bottom: 2px solid #00ffea;
+    box-shadow: 0 0 20px #00ffea;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.terminal-header {
+    color: #ff007f;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.hologram-menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding-left: 20px;
+}
+
+.neon-link {
+    text-decoration: none;
+    color: #00ffea;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+}
+
+.neon-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 100%;
+    height: 2px;
+    background: #00ffea;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.neon-link:hover::after {
+    transform: scaleX(1);
+    box-shadow: 0 0 10px #00ffea;
+}
+
+/* Seção Hero */
+.cyber-hero {
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
     height: 100vh;
-}
-
-.container {
     text-align: center;
-    background-color: #fff;
+    background: linear-gradient(135deg, #000, #001f3f);
+}
+
+.cyber-title {
+    font-size: 3rem;
+    color: #00ffea;
+    text-shadow: 0 0 10px #00ffea, 0 0 20px #00ffea;
+}
+
+.cyber-subtitle {
+    font-size: 1.5rem;
+    color: #ff007f;
+    text-shadow: 0 0 5px #ff007f;
+    margin-top: 10px;
+}
+
+/* Projetos com efeito 3D */
+.grid-holografico {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 50px;
+}
+
+.project-card {
+    background: rgba(0, 0, 0, 0.9);
+    border: 2px solid #00ffea;
+    box-shadow: 0 0 15px #00ffea;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-    width: 100%;
-}
-
-h1 {
-    font-size: 2em;
-    color: #e74c3c;
-    margin-bottom: 20px;
-}
-
-p {
-    font-size: 1.2em;
-    margin-bottom: 15px;
-}
-
-form {
-    margin-bottom: 20px;
-}
-
-label {
-    font-size: 1em;
-    display: block;
-    margin-bottom: 8px;
-}
-
-input[type="email"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    font-size: 1em;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-button {
-    padding: 10px 20px;
-    background-color: #3498db;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    font-size: 1em;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    perspective: 1000px;
     cursor: pointer;
 }
 
-button:hover {
-    background-color: #2980b9;
+.project-card:hover {
+    transform: scale(1.05) rotateY(10deg);
+    box-shadow: 0 0 30px #00ffea;
 }
 
-a {
-    color: #3498db;
-    text-decoration: none;
+.tech-stack {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
 }
 
-a:hover {
-    text-decoration: underline;
+.neon-badge {
+    background: #00ffea;
+    color: #000;
+    padding: 5px 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #00ffea;
+    font-weight: bold;
 }
+
+/* Habilidades */
+.cyber-skills {
+    background: #001f3f;
+    padding: 50px;
+    text-align: center;
+}
+
+/* Formulário de contato */
+.cyber-form {
+    background: linear-gradient(135deg, #000, #001f3f);
+    padding: 50px;
+    text-align: center;
+}
+
+.cyber-form input, .cyber-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid #00ffea;
+    background: transparent;
+    color: #00ffea;
+    outline: none;
+    box-shadow: 0 0 10px #00ffea;
+    transition: box-shadow 0.3s;
+}
+
+.cyber-form input:focus, .cyber-form textarea:focus {
+    box-shadow: 0 0 20px #00ffea;
+}
+
+.cyber-form button {
+    background: #00ffea;
+    color: #000;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+    box-shadow: 0 0 10px #00ffea;
+}
+
+.cyber-form button:hover {
+    background: #ff007f;
+    box-shadow: 0 0 20px #ff007f;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .hologram-menu {
+        flex-direction: column;
+        align-items: center;
+    }
+    .cyber-title {
+        font-size: 2.5rem;
+    }
+    .cyber-subtitle {
+        font-size: 1.2rem;
+    }
+}
+
